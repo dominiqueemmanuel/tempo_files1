@@ -64,6 +64,7 @@ compare_and_install_packages_version <- function(file = "packages_versions", sin
                                 # , repos = repos,
                                # , contriburl = contriburl
                                 # , type = type
+                               ,INSTALL_opts = "--no-test-load"
                                 ,dependencies=FALSE))
       }
     }
@@ -81,7 +82,7 @@ compare_and_install_packages_version <- function(file = "packages_versions", sin
     }
     url <- paste(info$repo[1L], "/src/contrib/Archive/", package.path, 
                  sep = "")
-    install_url(url, ...)
+    install_url(url, ..., args = "--no-test-load")
   }
   
   if(!is.null(sink_file))sink(file = sink_file)
